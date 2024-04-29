@@ -1,0 +1,15 @@
+pandas
+scikit-learn
+seaborn
+numpy
+flask
+dvc
+mlflow
+
+
+pytest
+tox
+mypy==1.10.0
+flake8
+black==24.4.2
+
