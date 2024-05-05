@@ -24,7 +24,7 @@ class CustomException(Exception):
 
 if __name__=="__main__":
     try:
-        b=10/0
+        a=10/0
     except Exception as e:
         raise CustomException(e,sys)
 
