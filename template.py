@@ -3,8 +3,8 @@ from pathlib import Path
 import logging
 
 list_of_files=[
-    ". gthub/workflows/.gitkeep ",
-    "src/.__init__.py",
+    ".github/workflows/.gitkeep ",
+    "src/__init__.py",
     "src/components/__init__.py",
     "src/components/data_ingestion.py",
     "src/components/data_transformation.py",
@@ -24,7 +24,7 @@ list_of_files=[
     "requirements_dev.txt",
     "setup.py",
     "setup.cfg",
-    "pyprject.toml",
+    "pyproject.toml",
     "tox.ini",
     "experiment/experiments.ipynb"
     ]

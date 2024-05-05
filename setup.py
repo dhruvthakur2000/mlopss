@@ -19,8 +19,8 @@ with open('README.md', 'r', encoding='utf-8') as f:
    
 
 __version__ = "0.0.1"
-REPO_NAME = "DB_connector"
-PKG_NAME= "DBConnect"
+REPO_NAME = "Diamond Price Predictor"
+PKG_NAME= "GemPrice"
 AUTHOR_USER_NAME = "Dhruv Thakur"
 AUTHOR_EMAIL = "dhruvshirar@gmail.com"
 
