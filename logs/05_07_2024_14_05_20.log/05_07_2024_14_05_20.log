@@ -1,0 +1,6 @@
+[ 2024-05-07 14:05:21,416 ] 23 root - INFO - Data_ingestion initiated
+[ 2024-05-07 14:05:21,606 ] 26 root - INFO - Read the data successfully
+[ 2024-05-07 14:05:22,752 ] 30 root - INFO - Saved data to artifacts folder
+[ 2024-05-07 14:05:22,778 ] 33 root - INFO - Performed train and test split
+[ 2024-05-07 14:05:24,026 ] 40 root - INFO - data ingestion completed
+[ 2024-05-07 14:05:24,289 ] 32 root - INFO - Read training and testing datasets

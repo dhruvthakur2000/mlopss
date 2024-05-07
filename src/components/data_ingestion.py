@@ -1,13 +1,8 @@
 import pandas as pd
 import numpy as np
-<<<<<<< HEAD
+
 from src.exception import CustomException
 from src.logging import logging 
-=======
-from src.exception.exception import CustomException
-from src.logger.logging import logging 
->>>>>>> 93900d4f7aec8d24856367cda846b888b9fc76f8
-
 import os
 import sys
 from sklearn.model_selection import train_test_split
@@ -16,8 +11,8 @@ from dataclasses import dataclass
 
 @dataclass
 class DataIngestionConfig:
-    raw_data_path=os.path.join('artifacts','train.csv')
-    train_data_path=os.path.join('artifacts','validation.csv')
+    raw_data_path=os.path.join('artifacts','data.csv')
+    train_data_path=os.path.join('artifacts','train.csv')
     test_data_path=os.path.join('artifacts','test.csv')
 
 class DataIngestion:
@@ -27,15 +22,17 @@ class DataIngestion:
     def initaiate_data_ingestion(self):
         logging.info("Data_ingestion initiated")
         try:
-            data=pd.read_csv('data\train.csv')
+            data=pd.read_csv('data/train.csv')
             logging.info('Read the data successfully')
 
-            os.makedirs(os.path.dirname(os.join.path(self.ingestionConfig.raw_data_path)),exist_ok=True)
+            os.makedirs(os.path.dirname(os.path.join(self.ingestionConfig.raw_data_path)),exist_ok=True)
             data.to_csv(self.ingestionConfig.train_data_path,index=False)
             logging.info('Saved data to artifacts folder')
 
-            train_data,test_data=train_test_split('data',test_size=0.25)
+            train_data,test_data=train_test_split(data,test_size=0.25,random_state=13)
             logging.info('Performed train and test split')
+
+            print(train_data)
 
             train_data.to_csv(self.ingestionConfig.train_data_path,index=False)
             test_data.to_csv(self.ingestionConfig.test_data_path,index=False)
@@ -43,11 +40,17 @@ class DataIngestion:
             logging.info('data ingestion completed')
 
             return(
-                self.ingestionConfig.raw_data_path,
+                self.ingestionConfig.train_data_path,
                 self.ingestionConfig.test_data_path
+
             )
 
 
         except Exception as e:
            logging.info("exception during occured at data ingestion stage")
            raise CustomException(e,sys)
+
+
+if __name__=="__main__":
+    obj=DataIngestion()
+    data=obj.initaiate_data_ingestion()

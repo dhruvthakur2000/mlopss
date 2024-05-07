@@ -1,9 +1,9 @@
-from setuptools import setup, find_packages
+"""from setuptools import setup,find_packages
 from typing import List
 
 HYPEN_E_DOT='-e .'
 
-def get_requiremet(file_path:str)->List[str]:
+def get_requirement(file_path:str)->List[str]:
     requirements = []
     with open(file_path) as f:
         requirements=f.readlines()
@@ -38,6 +38,32 @@ setup(
     },
     package_dir={"": "src"},
     packages=find_packages(where="src"),
-    install_requires=get_requiremet('requirements_dev.txt')
+    install_requires=get_requirement('requirements_dev.txt')
     
+)"""
+
+
+from setuptools import find_packages,setup
+from typing import List
+
+"""HYPEN_E_DOT='-e .'
+
+def get_requirements(file_path:str)->List[str]:
+    requirements=[]
+    with open(file_path) as file_obj:
+        requirements=file_obj.readlines()
+        requirements=[req.replace("\n","") for req in requirements]
+
+        if HYPEN_E_DOT in requirements:
+            requirements.remove(HYPEN_E_DOT)
+
+    return requirements"""
+
+setup(
+    name='DimondPricePrediction',
+    version='0.0.1',
+    author='Dhruv Thakur',
+    author_email='dhruvshirar@gmail.com',
+    install_requires=["scikit-learn","pandas","numpy"],
+    packages=find_packages()
 )
