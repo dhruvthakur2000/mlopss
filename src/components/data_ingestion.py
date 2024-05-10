@@ -26,13 +26,13 @@ class DataIngestion:
             logging.info('Read the data successfully')
 
             os.makedirs(os.path.dirname(os.path.join(self.ingestionConfig.raw_data_path)),exist_ok=True)
-            data.to_csv(self.ingestionConfig.train_data_path,index=False)
+            data.to_csv(self.ingestionConfig.raw_data_path,index=False)
             logging.info('Saved data to artifacts folder')
 
             train_data,test_data=train_test_split(data,test_size=0.25,random_state=13)
             logging.info('Performed train and test split')
-
-            print(train_data)
+            logging.info(f"shape of training set:{train_data.shape}")
+            logging.info(f"shape of training set:{test_data.shape}")
 
             train_data.to_csv(self.ingestionConfig.train_data_path,index=False)
             test_data.to_csv(self.ingestionConfig.test_data_path,index=False)
